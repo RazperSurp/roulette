@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>roulette</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poiret+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <h1> Русская рулетка </h1>
+    </header>
+    <main>
+        <form id="settings">
+            <div class="form-group">
+                <label for="players-count"> Количество игроков </label>
+                <input type="number" name="players-count" id="players-count" value="3">
+            </div>
+            <div class="form-group">
+                <button type="submit"> Применить </button>
+            </div>
+        </form>
+        <template id="revolver-interface">
+            <div class="rounds"> </div>
+            <form id="rounds-settings">
+                <div class="form-group">
+                    <label for="rounds-count"> Количество патронов </label>
+                    <input type="number" name="rounds" id="rounds-count" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="size"> Размер барабана </label>
+                    <input type="number" name="size" id="size" value="6">
+                </div>
+                <div class="form-group">
+                    <button type="submit"> Применить </button>
+                </div>
+            </form>
+            <div class="chance"> </div>
+        </template>
+        <div id="game-field"> </div>
+    </main>
+    <footer hidden>
+        <p>
+            <strong> ВНИМАНИЕ! </strong> В случае, если Вы обнаружите какой-либо баг, к примеру: 0/0 = NaN% или 1/0 = NaN% и пр., то не торопитесь мне о них сообщать - я о них знаю, но не правлю целенаправленно, в связи с тем, <strong><i>что мне тупа похуй</i></strong>.
+        </p>
+    </footer>
+</body>
+<script type="module" src="main.mjs"> </script>
+</html>

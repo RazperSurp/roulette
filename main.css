@@ -1,0 +1,207 @@
+:root {
+    --dead-color: #ffafaf;
+}
+
+body * {
+  font-family: "Sofia Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+template {
+    display: none;
+}
+
+header h1 {
+    font-size: xxx-large;
+    text-align: center;
+}
+
+main,
+header {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#game-field {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-height: 0px;
+    transition: .5s;
+    overflow: hidden;
+}
+
+#game-field.ready {
+    max-height: 2000px;
+}
+
+.revolver-interface {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: .15s;
+    align-items: center;
+    background-color: #a1c49d54;
+}
+
+.revolver-interface .chance {
+    height: 300px;
+    width: 0px;
+    transition: .15s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-weight: 900;
+    font-size: xxx-large;
+    border: unset;
+    border-radius: 20px;
+    aspect-ratio: 1;
+    background-color: #a1c49d;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+input,
+button,
+label {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    border: unset;
+    transition: .1s;
+    font-size: x-large;
+}
+
+input {
+    background-color: #a1c59d;
+}
+
+button {
+    border: unset;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #cdcdcd;
+}
+
+.revolver-interface form.updated {
+    margin-left: 150px;
+}
+
+.revolver-interface form.updated input {
+    text-align: center;
+    background-color: #e56262;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#settings {
+    margin-bottom: 50px;
+}
+
+.revolver-interface:has(form.updated) .chance {
+    width: 300px;
+}
+
+.revolver-interface.dead {
+    background-color: var(--dead-color);
+}
+
+.revolver-interface.dead button:hover {
+    background-color: #701010;
+}
+
+.revolver-interface.dead button {
+    font-weight: bold;
+    color: #fff;
+    background-color: #a21e1e;
+}
+
+.revolver-interface.dead .chance {
+    background-color: #a21e1e !important;
+    color: transparent;
+    background-image: url('./assets/mine.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -4px 3px;
+    transform: rotate(30deg);
+    border-radius: 150px;
+    animation: rotate .75s ease-in-out;
+}
+
+.rounds {
+    position: absolute;
+    width: 0px;
+    height: 300px;
+    border-radius: 100%;
+    background-image: url('./assets/drum_unshot.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: -150px;
+    transition: .15s;
+}
+
+.revolver-interface.dead .rounds {
+    background-image: url('./assets/drum_unshot.svg');
+}
+
+.revolver-interface:has(form.updated) .rounds {
+    width: 300px;
+}
+
+.revolver-interface .rounds.roll {
+    animation: rotateDrum 1s ease-in-out;
+}
+
+.revolver-interface .rounds.next {
+    animation: drumNext .25s ease-in-out !important;
+    transform: rotate(0deg)
+}
+
+@keyframes rotateDrum {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+@keyframes drumNext {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(60deg);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(750deg);
+    }
+}
